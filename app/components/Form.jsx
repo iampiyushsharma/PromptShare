@@ -1,6 +1,20 @@
 import Link from "next/link";
 
+import Data from "../test/Data"
+
+
+
 const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
+  async function generatePrompt () {
+    const comm = `Create an better prompt from my propmt for gpt without any thing extra 
+    here is my prompt ${post.prompt}`;
+    const data=await Data(comm)
+    //console.log(data);
+
+
+    setPost({...post, Gprompt:data})
+  }
+
   return (
     <section className='w-full max-w-full flex-start flex-col'>
       <h1 className='head_text text-left'>
@@ -25,9 +39,27 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
             onChange={(e) => setPost({ ...post, prompt: e.target.value })}
             placeholder='Write your post here'
             required
-            className='form_textarea '
+            className='form_textarea'
+            
           />
+
+          <textarea
+            value={post.Gprompt}
+            onChange={(e) => setGPost({ ...post, Gprompt: e.target.value })}
+            placeholder='Generated Prompt will appear here'
+            required
+            className='form_textarea h-2'
+            
+          />
+          
         </label>
+        <button
+            type='button'
+            onClick={generatePrompt}
+            className='px-5 py-1.5 text-sm mt-6 bg-primary-orange rounded-full text-white'
+          >
+            Generate 🪄
+          </button>
 
         <label>
           <span className='font-satoshi font-semibold text-base text-gray-700'>

@@ -12,6 +12,7 @@ const CreatePrompt = () => {
   const [submitting , setSubmitting] = useState(false);
   const [post, setPost] = useState({
     prompt:'',
+    Gprompt:'',
     tag:'',
   })
 
@@ -24,6 +25,7 @@ const CreatePrompt = () => {
             method: 'POST',
             body: JSON.stringify({
                 prompt: post.prompt,
+                Gprompt: post.Gprompt,
                 userId: session?.user.id,
                 tag: post.tag
             })

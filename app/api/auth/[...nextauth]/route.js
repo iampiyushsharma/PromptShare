@@ -5,7 +5,7 @@ import { connectToDB } from "@utils/database";
 
 
 
-const handler = NextAuth({
+export const handler = NextAuth({
     providers: [
         GoogleProvider({
             clientId:process.env.GOOGLE_ID,

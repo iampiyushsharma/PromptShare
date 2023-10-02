@@ -21,8 +21,8 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
   };
 
   const handleCopy = () => {
-    setCopied(post.prompt);
-    navigator.clipboard.writeText(post.prompt);
+    setCopied(post.Gprompt);
+    navigator.clipboard.writeText(post.Gprompt);
     setTimeout(() => setCopied(false), 3000);
   };
 
@@ -54,11 +54,11 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
         <div className='copy_btn' onClick={handleCopy}>
           <Image
             src={
-              copied === post.prompt
+              copied === post.Gprompt
                 ? "/assets/icons/tick.svg"
                 : "/assets/icons/copy.svg"
             }
-            alt={copied === post.prompt ? "tick_icon" : "copy_icon"}
+            alt={copied === post.Gprompt ? "tick_icon" : "copy_icon"}
             width={12}
             height={12}
           />
@@ -66,6 +66,13 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
       </div>
 
       <p className='my-4 font-satoshi text-sm text-gray-700'>{post.prompt}</p>
+
+
+
+      {/* ruf */}
+      {post.Gprompt && (<strong><p className='my-4 font-satoshi text-sm text-gray-700'>{post.Gprompt}</p></strong>)}
+      
+
       <p
         className='font-inter text-sm blue_gradient cursor-pointer'
         onClick={() => handleTagClick && handleTagClick(post.tag)}

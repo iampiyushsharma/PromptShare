@@ -9,6 +9,10 @@ const PromptSchema = new Schema({
     type: String,
     required: [true, 'Prompt is required.'],
   },
+  Gprompt: {
+    type: String,
+    required: [false, 'This is Not required if you are PRO.'],
+  },
   tag: {
     type: String,
     required: [true, 'Tag is required.'],
