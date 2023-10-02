@@ -22,7 +22,7 @@
     "@types/react": "18.2.24",
     "autoprefixer": "latest",
     "postcss": "latest",
-    "tailwindcss": "latest",
-    "typescript": "5.2.2"
+    "tailwindcss": "latest"
+    
   }
 }
