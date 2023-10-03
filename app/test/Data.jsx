@@ -1,5 +1,5 @@
 export default async function Data(prompts){
-    const response = await fetch('http://localhost:3000/api/openai', {
+    const response = await fetch('https://prompt-share-beta.vercel.app/api/openai', {
         method: 'POST',
         body: JSON.stringify({
             data:prompts
