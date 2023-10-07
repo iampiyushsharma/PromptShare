@@ -4,12 +4,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import { useState, useEffect } from 'react';
+
 import {signIn, signOut, useSession, getProviders} from 'next-auth/react'
 
 const Nav = () => {
     const { data: session} = useSession();
     const [providers, setProviders] = useState(null);
     const [toggleDropdown, setToggleDropdown] = useState(false)
+    
+
+    
 
     useEffect(() => {
         (async () => {
@@ -27,7 +31,19 @@ const Nav = () => {
                 className='object-contain'
             />
             <p className='logo_text'>Promptopia</p>
+            <Link href='https://github.com/iampiyushsharma/PromptShare' className='hidden sm:block'>
+            <Image src='/assets/images/github.svg'
+                alt='Promptopia logo'
+                width={30}
+                height={30}
+                className='object-contain'
+            />
         </Link>
+            
+        </Link>
+        
+        
+        
 
         {/* desktop navigation */}
         <div className='sm:flex hidden'>
